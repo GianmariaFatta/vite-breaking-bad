@@ -16,7 +16,8 @@ export default {
 
 <template>
     <div class="row">
-        <!-- <h1 v-if="">Loading...</h1> -->
+        <h1 class=" text-danger" v-if="store.pokemons.length < 10">
+            Loading...</h1>
         <div v-for="pokemon in store.pokemons" :key="pokemon.name" class="col-2 text-center p-4">
             <img class="img-fluid" :src="pokemon.imageUrl" :alt="pokemon.name">
             <h4 class="mt-2  ">{{ pokemon.name }}</h4>
