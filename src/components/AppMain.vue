@@ -1,14 +1,15 @@
 <script>
 import axios from 'axios';
+import { store } from '../data/store'
 export default {
     name: 'AppMain',
     data() {
         return {
-            pokemons: []
+            store
         }
     },
     mounted() {
-        axios.get('https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=10&page=8').then(res => { this.pokemons = res.data.docs })
+        axios.get(store.apiUri).then(res => { store.pokemons = res.data.docs })
     }
 }     
 </script>
@@ -16,9 +17,9 @@ export default {
 <template>
     <div class="row">
         <!-- <h1 v-if="">Loading...</h1> -->
-        <div v-for="pokemon in pokemons" :key="pokemon.name" class="col-2 text-center p-4">
+        <div v-for="pokemon in store.pokemons" :key="pokemon.name" class="col-2 text-center p-4">
             <img class="img-fluid" :src="pokemon.imageUrl" :alt="pokemon.name">
-            <h5>{{ pokemon.name }}</h5>
+            <h4 class="mt-2  ">{{ pokemon.name }}</h4>
         </div>
     </div>
 </template>
@@ -32,5 +33,8 @@ img {
     width: 230px;
     height: 230px;
     object-fit: fill;
+    border-radius: 20%;
+    box-shadow: 0 0 10px blue;
+
 }
 </style>

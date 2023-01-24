@@ -21,5 +21,8 @@ export default {
   height: 1000px;
   width: 100%;
   background-color: #dedede;
+  border-radius: 15%;
+  box-shadow: 10px 10px 10px 10px gold;
+  border: 5px solid gold
 }
 </style>
