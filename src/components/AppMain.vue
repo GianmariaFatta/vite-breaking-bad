@@ -15,12 +15,13 @@ export default {
 </script>
 
 <template>
+    <h1 class=" text-danger" v-if="store.pokemons.length < 10">
+        Loading...</h1>
     <div class="row">
-        <h1 class=" text-danger" v-if="store.pokemons.length < 10">
-            Loading...</h1>
-        <div v-for="pokemon in store.pokemons" :key="pokemon.name" class="col-2 text-center p-4">
+        <div v-for="pokemon in store.pokemons" :key="pokemon.name" class="col-2 card-pokèmon text-center p-1 mb-3">
             <img class="img-fluid" :src="pokemon.imageUrl" :alt="pokemon.name">
-            <h4 class="mt-2  ">{{ pokemon.name }}</h4>
+            <h4 class="mt-2  ">Name: {{ pokemon.name }}</h4>
+            <h4 class="mt-2  ">Type: {{ pokemon.type1 }}</h4>
         </div>
     </div>
 </template>
@@ -37,5 +38,12 @@ img {
     border-radius: 20%;
     box-shadow: 0 0 10px blue;
 
+}
+
+// HOVER----
+.card-pokèmon:hover {
+    border: 5px solid gold;
+    background-color: gold;
+    transform: scale(1.1)
 }
 </style>

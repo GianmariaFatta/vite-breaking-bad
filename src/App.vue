@@ -7,7 +7,7 @@ export default {
 </script>
 
 <template>
-  <div class="container my-5 box text-center p-3">
+  <div class="container my-5 box text-center p-5">
     <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="">
     <header class="text-center p-5">
     </header>
