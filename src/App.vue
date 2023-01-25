@@ -1,13 +1,15 @@
 <script>
 import AppMain from './components/AppMain.vue';
-import axios from 'axios';
 import { store } from './data/store';
+import axios from 'axios';
 import SearchBar from './components/SearchList.vue';
 export default {
   data() {
     return {
       store,
-      pokemonTypes: ["Ground",
+      type: "",
+      pokemonTypes: [
+        "Ground",
         "Steel",
         "Fairy",
         "Fire",
@@ -24,11 +26,22 @@ export default {
         "Ice",
         "Bug",
         "Flying",
-        "Water"]
+        "Water"
+      ],
+      apiUriType: "https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=20&eq[type1]="
     }
   },
-  mounted() {
-    axios.get(store.apiUri_Types).then(res => { store.pokèmonTypes = res.data })
+  methods: {
+    changeType(value) {
+      this.type = value;
+      this.apiUriType = `https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=20&eq[type1]=${this.type}`
+      axios.get(this.apiUriType).then(res => {
+        store.pokemons = res.data.docs
+        if (!this.type) {
+          axios.get(store.apiUri).then(res => { store.pokemons = res.data.docs })
+        }
+      })
+    }
   },
   components: { AppMain, SearchBar },
 };
@@ -41,7 +54,7 @@ export default {
         <img class="img-fluid"
           src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="">
       </figure>
-      <SearchBar @value-change="" />
+      <SearchBar :options="pokemonTypes" @value-change="changeType" />
     </header>
     <AppMain />
   </div>

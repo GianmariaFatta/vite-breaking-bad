@@ -5,7 +5,8 @@ export default {
     name: 'AppMain',
     data() {
         return {
-            store
+            store,
+
         }
     },
     mounted() {

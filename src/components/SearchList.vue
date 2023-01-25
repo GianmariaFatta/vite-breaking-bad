@@ -1,23 +1,23 @@
 <script>
-import { store } from '../data/store';
 export default {
     name: 'SearchList',
     data() {
         return {
-            store,
             value: ""
         }
     },
     emits: ['value-change'],
+    props: [
+        'options'
+    ]
 }
 </script>
 
 <template>
     <select class="form-select" v-model="value" @change="$emit('value-change', value)">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+        <option selected value="">All</option>
+        <option v-for="option in options" :value=option>{{ option }}</option>
+
     </select>
 
 </template>
