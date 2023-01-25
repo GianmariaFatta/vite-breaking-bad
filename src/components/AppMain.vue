@@ -18,7 +18,7 @@ export default {
     <h1 class=" text-danger" v-if="store.pokemons.length < 10">
         Loading...</h1>
     <div class="row">
-        <div v-for="pokemon in store.pokemons" :key="pokemon.name" class="col-2 card-pokèmon text-center p-1 mb-3">
+        <div v-for="pokemon in store.pokemons" :key="pokemon.name" class="col-2 card-pokèmon text-center p-3 mb-3 mt-1">
             <img class="img-fluid" :src="pokemon.imageUrl" :alt="pokemon.name">
             <h4 class="mt-2  ">Name: {{ pokemon.name }}</h4>
             <h4 class="mt-2  ">Type: {{ pokemon.type1 }}</h4>
@@ -28,7 +28,8 @@ export default {
 
 <style scoped lang="scss">
 .col-2 {
-    width: calc(100% / 5)
+    width: calc(100% / 5);
+    height: 400px;
 }
 
 img {

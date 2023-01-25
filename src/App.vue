@@ -18,7 +18,7 @@ export default {
 
 <style lang="scss">
 .box {
-  height: 1000px;
+  height: 1200px;
   width: 100%;
   background-color: #dedede;
   border-radius: 15%;
