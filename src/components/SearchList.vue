@@ -7,9 +7,11 @@ export default {
         }
     },
     emits: ['value-change'],
-    props: [
-        'options'
-    ]
+    props: {
+
+        options: Array
+    }
+
 }
 </script>
 

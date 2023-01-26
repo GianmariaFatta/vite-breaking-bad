@@ -54,7 +54,7 @@ export default {
 <template>
   <div class="container my-5 box text-center p-5">
     <header class="text-center p-3">
-      <figure class="mb-0">
+      <figure class="mb-5">
         <img class="img-fluid"
           src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="">
       </figure>
