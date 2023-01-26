@@ -33,6 +33,7 @@ export default {
   },
   methods: {
     changeType(value) {
+      store.pokemons = [""]
       this.type = value;
       this.apiUriType = `https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=20&eq[type1]=${this.type}`
       axios.get(this.apiUriType).then(res => {
@@ -41,7 +42,10 @@ export default {
           axios.get(store.apiUri).then(res => { store.pokemons = res.data.docs })
         }
       })
-    }
+    },
+    // resetArray() {
+    //   store.pokemons = [""];
+    // }
   },
   components: { AppMain, SearchBar },
 };
