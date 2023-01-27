@@ -54,20 +54,25 @@ export default {
 <template>
   <div class="container my-5 box text-center p-5">
     <header class="text-center p-3">
-      <figure class="mb-5">
-        <img class="img-fluid"
-          src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="">
-      </figure>
-      <SearchBar :options="pokemonTypes" @value-change="changeType" />
+      <div>
+        <figure class="mb-3">
+          <img class="img-fluid"
+            src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="">
+        </figure>
+        <SearchBar :options="pokemonTypes" @value-change="changeType" />
+      </div>
     </header>
-    <AppMain />
+    <div class=" box-pokemon mb-2 overflow-auto ">
+      <AppMain />
+    </div>
   </div>
 
 </template>
 
 <style lang="scss">
 figure {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
 
   img {
     width: 50%;
@@ -75,11 +80,16 @@ figure {
 }
 
 .box {
-  height: auto;
-  width: 100%;
+  height: 850px;
+  width: 60%;
   background-color: #dedede;
   border-radius: 1%;
   box-shadow: 10px 10px 10px 10px gold;
-  border: 5px solid gold
+  border: 5px solid gold;
+
+}
+
+.box-pokemon {
+  height: 70%;
 }
 </style>

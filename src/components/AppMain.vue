@@ -18,7 +18,7 @@ export default {
 <template>
     <h1 class=" text-danger" v-if="store.pokemons.length < 5">
         Loading...</h1>
-    <div class="row mt-0">
+    <div class="row mt-0  ">
         <div v-for="pokemon in store.pokemons" :key="pokemon.name"
             class="col-2 card-pokèmon  text-center p-3 mb-3 mt-1">
             <img class="img-fluid" :class="pokemon.type1" :src="pokemon.imageUrl" :alt="pokemon.name">
@@ -30,20 +30,21 @@ export default {
 
 <style scoped lang="scss">
 .row {
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
+
 }
 
 .col-2 {
     width: calc(100% / 5);
-    height: 400px;
+    height: 300px;
 }
 
 img {
-    width: 230px;
-    height: 230px;
+    width: 100px;
+    height: 100px;
     object-fit: fill;
-    border-radius: 20%;
+    border-radius: 50%;
 
     // box-shadow: 0 0 10px blue;
 
